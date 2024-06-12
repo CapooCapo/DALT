@@ -121,3 +121,30 @@ GO
 
 
 SQL===================================
+
+
+Tạo Database có tên là "Bakery" và copy paste:
+USE [Bakery]
+GO
+
+/****** Object:  Table [dbo].[Account]    Script Date: 6/12/2024 9:25:37 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Account](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[phoneNumber] [varchar](20) NULL,
+	[email] [varchar](100) NULL,
+	[username] [varchar](50) NULL,
+	[password] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
