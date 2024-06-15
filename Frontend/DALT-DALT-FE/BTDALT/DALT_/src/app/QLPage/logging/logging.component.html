@@ -1,0 +1,13 @@
+<div *ngIf="!userLoggedIn">
+  <form (submit)="onSubmit()">
+    <span>tài khoản <input type="text" name="username" [(ngModel)]="username" placeholder="tài khoản" required></span>
+    <span>mật khẩu <input type="password" name="password" [(ngModel)]="password" placeholder="mật khẩu" required></span>
+    <button type="submit">Đăng nhập</button>
+  </form>
+</div>
+
+<div *ngIf="userLoggedIn">
+  <p>Status: {{ statusMessage }}</p>
+  <p>Message: {{ responseMessage }}</p>
+  <!-- Hiển thị thông tin khác từ phản hồi API nếu cần -->
+</div>
