@@ -3,8 +3,8 @@ module.exports = {
   secretKey: 'K951B6PE1waDMi640xX08PD3vg6EkVlz',
   orderInfo: 'pay with MoMo',
   partnerCode: 'MOMO',
-  redirectUrl: 'http://localhost:5000/payment',
-  ipnUrl: 'https://d5cd-2405-4803-d746-cbf0-5581-5be8-4f79-fe85.ngrok-free.app/callback', //chú ý: cần dùng ngrok thì momo mới post đến url này được
+  redirectUrl: 'https://4jjl5xvc-5000.asse.devtunnels.ms/payment',
+  ipnUrl: 'https://4jjl5xvc-5000.asse.devtunnels.ms/callback', //chú ý: cần dùng ngrok thì momo mới post đến url này được
   requestType: 'payWithMethod',
   extraData: '',
   orderGroupId: '',

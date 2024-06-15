@@ -22,37 +22,38 @@ function updateTotal() {
   document.getElementById("total-price").innerText = totalPrice.toLocaleString('vi-VN') + ' VND';
 }
 
-async function handlePayment() {
+async function handlePayment(url) {
   const totalPriceText = document.getElementById('total-price').innerText;
   const amount = parseInt(totalPriceText.replace(/\D/g, ''));
 
   try {
-      const response = await fetch('https://4jjl5xvc-5000.asse.devtunnels.ms/payment', {
+      const response = await fetch(url, {
           method: 'POST',
           headers: {
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ amount }),
+          body: JSON.stringify({ amount })
       });
 
-      if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
       const data = await response.json();
-      console.log('Response data:', data);
-
-      if (data && data.order_url) {
+      console.log("Response data:", data);
+      if (data.zp_trans_token) {
           window.location.href = data.order_url;
+      } else if (data.payUrl) {
+          window.location.href = data.payUrl;
       } else {
-          console.error('Payment error:', data);
+          alert('Payment initiation failed');
       }
   } catch (error) {
-      console.error('Payment error:', error);
-      alert(`Payment error: ${error.message}`);
   }
 }
 
+document.getElementById("quantity").addEventListener("change", updateTotal);
+document.getElementById("zalopay-button").addEventListener("click", () => handlePayment('/payment'));
+document.getElementById("momo-button").addEventListener("click", () => handlePayment('/payment_momo'));
+
+
+updateTotal();
 document.addEventListener('DOMContentLoaded', function () {
   const quantityInput = document.getElementById('quantity');
   const payWithZaloPayButton = document.getElementById('zalopay-button');
@@ -64,4 +65,16 @@ document.addEventListener('DOMContentLoaded', function () {
   if (payWithZaloPayButton) {
       payWithZaloPayButton.addEventListener('click', handlePayment);
   }
+
 });
+document.addEventListener('DOMContentLoaded', function () {
+  const quantityInput = document.getElementById('quantity');
+  const payWithMoMoButton = document.getElementById('momo-button');
+
+  if (quantityInput) {
+      quantityInput.addEventListener('input', updateTotal);
+  }
+
+  if (payWithMoMoButton) {
+      payWithMoMoButton.addEventListener('click', handlePayment);
+  }});

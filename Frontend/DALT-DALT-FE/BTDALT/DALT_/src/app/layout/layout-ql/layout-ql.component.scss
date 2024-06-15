@@ -1,0 +1,21 @@
+#layout{
+    display: grid;
+    grid-template-rows: 95px 600px 105px;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+}
+
+#header{
+    grid-area: header;
+    background-color: bisque;
+}
+#main{
+    grid-area: main;
+    background-color: red;
+}
+#footer{
+    grid-area: footer;
+    background-color: aquamarine;
+}
