@@ -1,16 +1,3 @@
-<header>
-    <div class="logo">
-        <img src="../../../../assets/logocut.png" alt="">
-    </div>
-    <div class="main-menu-container">
-       <nav>
-            <ul>
-                <li *ngFor="let item of menuItems"><a routerLink="" [class.selected] ="item === selectedItem" (click)="onselecItem(item)" >{{item.name | uppercase}}</a></li>
-            </ul>
-       </nav>
-    </div>
-</header>
-
 <main>
     <div class="group-btn">
         <div class="btn-container">
@@ -22,17 +9,26 @@
             <div class="delete item">x</div>
         </div>
     </div>
-
     <div class="list-product-container">
         <ul class="list-product">
             <li *ngFor="let product of products" class="product-item">
-                <img [src]="product.imgProduct" alt="{{ product.name }}" class="img-product">
+                <div class="img-product-container">
+                    <img [src]="'data:image/png;base64,' + product.Image" alt="{{product.Product_Name}}" class="img-product">
+                </div>
                 <div class="infor-product">
-                    <div class="name-product">{{product.name}}</div>
-                    <div class="price">{{product.price | number: '1. 0-0'}}</div>
-                    <div class="describe">{{product.describe}}</div>
+                    <div class="name-product">{{product.Product_Name}}</div>
+                    <div class="price">{{product.Price | number: '1.2-2'}}</div>
+                    <div class="shopping-product">
+                        <div class="describe">{{product.Description}}</div>
+                        <div class="btn-product btn"><img src="../../../assets/icons8-cart-30.png" alt=""></div>
+                    </div>
                 </div>
             </li>
         </ul>
     </div>
 </main>
+<app-pagination 
+    [currentPage]="currentPage" 
+    [totalPages]="totalPages" 
+    (pageChange)="onPageChange($event)">
+</app-pagination>

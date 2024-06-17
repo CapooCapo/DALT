@@ -1,0 +1,11 @@
+<div class="logo">
+    <img src="../../../../assets/logocut.png" alt="">
+</div>
+<div class="main-menu-container">
+    <nav>
+        <a *ngFor="let item of menuItems" [routerLink]="item.linkQL" [class.selected]="item === selectedItem" (click)="onselecItem(item)">
+            {{ item.name | uppercase }}
+        </a>
+        <a routerLink="/customer">khách hàng</a>
+    </nav>
+</div>

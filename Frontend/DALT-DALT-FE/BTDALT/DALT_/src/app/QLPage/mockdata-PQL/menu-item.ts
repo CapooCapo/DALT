@@ -1,80 +1,27 @@
 export class MenuItem {
     name?: string;
+    linkQL?: string;
 }
 
 export const MENU:MenuItem[]= [
-    {name: 'sản phẩm'},
-    {name: 'khách hàng'},
-    {name: 'khuyến mãi'},
+    {name: 'sản phẩm', linkQL: '/productQL'},
+    {name: 'khách hàng',linkQL: '/customerQL'},
+    {name: 'khuyến mãi',linkQL: '/promotionQL'},
 ];
 
-export class product {
-    imgProduct?: any;
-    name?: string;
-    price?: number;
-    describe?: string;
+export class DTOProduct {
+    id?:any;
+    Image?: string;
+    Product_Name?: string;
+    Price?: number;
+    Description?: string;
+    Product_Type?: string;
 }
 
-export const PRODUCTS:product[]= [
-    {
-        imgProduct: '../../../../assets/product.jpg',
-        name: 'Sản phẩm',
-        price: 20,
-        describe:'Mô tả'
-    },
-    {
-        imgProduct: '../../../../assets/product.jpg',
-        name: 'Sản phẩm',
-        price: 20,
-        describe:'Mô tả'
-    },
-    {
-        imgProduct: '../../../../assets/product.jpg',
-        name: 'Sản phẩm',
-        price: 20,
-        describe:'Mô tả'
-    },
-    {
-        imgProduct: '../../../../assets/product.jpg',
-        name: 'Sản phẩm',
-        price: 20,
-        describe:'Mô tả'
-    },
-    {
-        imgProduct: '../../../../assets/product.jpg',
-        name: 'Sản phẩm',
-        price: 20,
-        describe:'Mô tả'
-    },
-    {
-        imgProduct: '../../../../assets/product.jpg',
-        name: 'Sản phẩm',
-        price: 20,
-        describe:'Mô tả'
-    },
-    {
-        imgProduct: '../../../../assets/product.jpg',
-        name: 'Sản phẩm',
-        price: 20,
-        describe:'Mô tả'
-    },
-    {
-        imgProduct: '../../../../assets/product.jpg',
-        name: 'Sản phẩm',
-        price: 20,
-        describe:'Mô tả'
-    },
-    {
-        imgProduct: '../../../../assets/product.jpg',
-        name: 'Sản phẩm',
-        price: 20,
-        describe:'Mô tả'
-    },
-
-
-    
-]
-export interface DTOuser {
-    password: string;
-    username: string;
+export class DTOAccount {
+    password?: string;
+    username?: string;
+    email?: string;
+    phone?: number;
 }
+

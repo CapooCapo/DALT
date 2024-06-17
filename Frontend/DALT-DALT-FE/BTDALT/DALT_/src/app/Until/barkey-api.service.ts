@@ -1,36 +1,75 @@
-import { Injectable } from '@angular/core';
+import { DTOAccount, DTOProduct } from './../QLPage/mockdata-PQL/menu-item';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Observable, throwError   } from 'rxjs';
+import { catchError, map } from 'rxjs/operators'; // Import operators as needed
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // Provide this service at the root level injector
 })
 export class BarkeyApiService {
-  private baseUrl = 'https://4jjl5xvc-5000.asse.devtunnels.ms'; // Base URL cho API backend
+  private shopUrl = 'https://4jjl5xvc-5000.asse.devtunnels.ms/';
 
   constructor(private http: HttpClient) {}
+  //#region product
+  // API lấy tất cả các sản phẩm
+  GetListProduct(page?: number, pageSize?: number, sort?: string) {
+    let a = {
+      page: page,
+      pageSize: pageSize,
+      sort: sort,
+    };
 
-  login(username: string, password: string): Observable<{ message: string; username: string; status: string }> {
-    const url = `${this.baseUrl}/login`;
-    return this.http.post<{ message: string; username: string; status: string }>(url, { username, password })
+    return new Observable<any>((obs) => {
+      this.http.post(this.shopUrl, a).subscribe(
+        (res) => {
+          obs.next(res);
+          obs.complete();
+        },
+        (error) => {
+          obs.error(error);
+          obs.complete();
+        }
+      );
+    });
+  }
+
+  GetProductBycatagoertID(cata:string): Observable<DTOProduct[]>{
+    let body = {
+      CatalogId: cata
+    };
+    return this.http.post<DTOProduct[]>(`${this.shopUrl}/GetProductBycatagoertID`, body)
       .pipe(
+        map((res: DTOProduct[]) => {
+          return res;
+        }),
         catchError((error) => {
-          console.error('Error logging in:', error);
-          return throwError(error);
+          console.log('API Error:', error);
+          return throwError('Something went wrong; please try again later.');
         })
       );
   }
 
-  register(username: string, password: string, phoneNumber: string, email: string): Observable<any> {
-    const url = `${this.baseUrl}/register`;
-    const body = { username, password, phoneNumber, email };
-    return this.http.post(url, body)
-      .pipe(
-        catchError((error) => {
-          console.error('Error registering:', error);
-          return throwError(error);
-        })
-      );
+  loadProducts(): Observable<DTOProduct[]> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      // 'Authorization': 'Bearer token' // Nếu không cần thiết, hãy xóa các header không cần thiết
+    });
+
+    return this.http.get<DTOProduct[]>(`${this.shopUrl}/products`, { headers }).pipe(
+      map((res: DTOProduct[]) => res), 
+      catchError((error) => {
+        console.error('Error fetching products:', error);
+        throw 'Error fetching products'; 
+      })
+    );
   }
+
+  GetProduct(name: string): Observable<DTOProduct> {
+    let body = {
+      name: name
+    };
+    return this.http.post<DTOProduct>(`${this.shopUrl}/getProductByName`, body);
+  }
+
 }

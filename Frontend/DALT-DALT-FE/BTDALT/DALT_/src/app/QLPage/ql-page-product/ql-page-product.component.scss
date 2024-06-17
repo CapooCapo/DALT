@@ -11,8 +11,8 @@
     }
 
     .btn{
-        width: 45px;
-        height: 45px;
+        width: 35px;
+        height: 35px;
         background-color: $Pink-n;
         border: 1px solid $Pink-r;
         border-radius: 100px;
@@ -28,8 +28,8 @@
 
     .price{
         color:red;
-        font-weight: bold;
         font-size: 14px;
+        padding-bottom: 5px;
     }
     .describe{
         color: rgb(144, 139, 139);
@@ -42,48 +42,7 @@
     body{
         background-color: $white-p;
     }
-    header{
-        .logo{
-            text-align: center;
-            height: 45px;
-        }
-        .main-menu-container{
-            height: 50px;
-            background-color: $Pink-n;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            nav{
-                ul{
-                    display: flex;
-                    li{
-                        padding: 2px 10px;
-                        border-right: 1px solid $white; 
-                        a{
-                            font-weight: bold;
-                            color: $white;
-                            &:hover{
-                                color: black;
-                                transition: 0.5s ease;
-                            }
-                            &:active{
-                                color: $Pink-n;
-                            }
-                            &.selected{
-                                color: $yellow-n;
-                                &:hover{
-                                    color:$yellow-d;
-                                }
-                                &:active{
-                                    color: $Pink-n;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    
 
     main{
         .group-btn{
@@ -143,6 +102,11 @@
                     border-radius: 30px;
                     box-shadow: 3px 1px 5px 1px;
                     margin: 10px;
+                    .img-product-container{
+                        height: 100px;
+                        width: 200px;
+                        border-bottom: 1px solid rgb(130, 132, 135);
+                    }
                     .img-product{
                         width: 200px;
                         height: 100px;
@@ -153,10 +117,30 @@
                         .name-product{
                             padding: 5px 0;
                         }
-                        
+                        .shopping-product{
+                            display: flex;
+                            justify-content: space-between;
+                            .btn-product{
+                                transform: translateY(-10px);
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                img{
+                                    height: 25px;
+                                }
+                            }
+                        }
                     }
+                    
                 }
             }
         }
+    }
+}
+
+
+footer{
+    app-pagination{
+        margin: 0;
     }
 }

@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './layout-ql.component.html',
   styleUrls: ['./layout-ql.component.scss']
 })
-export class LayoutQlComponent {
+export class LayoutQLComponent {
 
 }

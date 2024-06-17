@@ -1,0 +1,38 @@
+@import '../QLPage/ql-page-product/ql-page-product.component.scss';
+
+
+::ng-deep{
+    #layout{
+        display: grid;
+        grid-template-rows: 95px 300px 105px;
+        grid-template-columns: 246px 1fr;
+        grid-template-areas: 
+        'header header'
+        'contentM contentM'
+        'footer footer';
+    
+        #header{
+            grid-area: header;
+            background-color: bisque;
+        }
+        #taskbar{
+            grid-area: taskbar;
+        }
+        #content{
+            grid-area: contentM;
+            height: 600px;
+        }
+        #footer{
+            grid-area: footer;
+            background-color: $blue-n;
+            height: 105px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            .logo-footer{
+                height: 105px;
+            }
+        }
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bánh Ngọt Bakery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">BÁNH NGỌT</div>
+        <div class="menu">
+            <button id="loginButton">Đăng nhập</button>
+            <button id="registerButton">Đăng ký</button>
+            <button id="userButton" style="display:none">User</button>
+            <div id="userDropdown" class="dropdown-content" style="display:none">
+                <button id="logoutButton">Đăng xuất</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close" id="closeLoginModal">&times;</span>
+            <h2>Đăng Nhập</h2>
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Username" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Đăng nhập</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close" id="closeRegisterModal">&times;</span>
+            <h2>Đăng Ký</h2>
+            <form id="registerForm">
+                <input type="text" id="registerUsername" placeholder="Username" required>
+                <input type="password" id="registerPassword" placeholder="Password" required>
+                <input type="text" id="registerPhone" placeholder="Phone Number" required>
+                <input type="email" id="registerEmail" placeholder="Email" required>
+                <button type="submit">Đăng ký</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="hero">
+        <img src="bannhngot.jpg" alt="Bánh ngọt" class="hero-image">
+    </div>
+
+    <div class="products" id="products">
+        <!-- Products will be dynamically loaded here -->
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

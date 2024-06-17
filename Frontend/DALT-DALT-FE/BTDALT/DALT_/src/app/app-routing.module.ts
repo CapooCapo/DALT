@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { LoggingComponent } from './QLPage/logging/logging.component';
-import { RegisterComponent } from './QLPage/register/register.component';
+import { LayoutQLComponent } from './layout-ql/layout-ql.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoggingComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  {path:'', redirectTo:'page',pathMatch:'full'},
+  {
+    path: 'ql',
+    loadChildren: () => import('./QLPage/pql-app-routing.module').then(m => m.PqlAppRoutingModule)
+  },
+  {
+    path: 'page',
+    loadChildren: () => import('./homePage/pbarkey-app-routing.module').then(m => m.PbarkeyAppRoutingModule)
+  },
 ];
 
 @NgModule({

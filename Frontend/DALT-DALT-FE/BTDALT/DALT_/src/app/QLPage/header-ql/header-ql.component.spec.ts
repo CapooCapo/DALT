@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavbarComponent } from './navbar.component';
+import { HeaderQLComponent } from './header-ql.component';
 
-describe('NavbarComponent', () => {
-  let component: NavbarComponent;
-  let fixture: ComponentFixture<NavbarComponent>;
+describe('HeaderQLComponent', () => {
+  let component: HeaderQLComponent;
+  let fixture: ComponentFixture<HeaderQLComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NavbarComponent]
+      declarations: [HeaderQLComponent]
     });
-    fixture = TestBed.createComponent(NavbarComponent);
+    fixture = TestBed.createComponent(HeaderQLComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
