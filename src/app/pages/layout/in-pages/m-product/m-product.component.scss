@@ -1,0 +1,93 @@
+@import '../../../../../styles.scss';
+
+::ng-deep{
+    .group-btn{
+        margin: 10px 10px;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        .btn-container{
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-around;
+            align-items: center;
+            gap: 10px;
+            .more{
+                width: 50px;
+                height: 50px;
+                background-color: $yellow-d;
+                border-radius: 100px;
+                cursor: pointer;
+            }
+            .item{
+                border-radius: 100px;
+                width: 25px;
+                height: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+                font-size: 20px;
+                padding: 5px;
+                cursor: pointer;
+            }
+            .add{
+                background-color: $Pink-n;
+            }
+            .fix{
+                background-color: $yellow-n;
+                .fix-img{
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+            .delete{
+                background-color: $blue;
+            }
+        }
+    }
+    .list-product-container{
+        margin-left: 10px;
+        .list-product{
+            display: flex;
+            flex-wrap: wrap;
+            li{
+                width: 200px;
+                height: 200px;
+                border-radius: 30px;
+                box-shadow: 3px 1px 5px 1px;
+                margin: 10px;
+                .img-product-container{
+                    height: 100px;
+                    width: 200px;
+                    border-bottom: 1px solid rgb(130, 132, 135);
+                }
+                .img-product{
+                    width: 200px;
+                    height: 100px;
+                    border-radius: 30px 30px 0 0;
+                }
+                .infor-product{
+                    padding: 0 10px;
+                    .name-product{
+                        padding: 5px 0;
+                    }
+                    .shopping-product{
+                        display: flex;
+                        justify-content: space-between;
+                        .btn-product{
+                            transform: translateY(-10px);
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            img{
+                                height: 25px;
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
