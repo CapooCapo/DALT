@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bánh Ngọt Bakery - Đăng ký</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-form">
+            <h2>Đăng ký</h2>
+            <h4><a href = "../test.html">Bánh Ngọt Bakery</a></h4>
+            <form id="register-form">
+                <label for="register-username">Tên đăng nhập:</label>
+                <input type="text" id="register-username" placeholder="Tên đăng nhập" required>
+                
+                <label for="register-password">Mật khẩu:</label>
+                <input type="password" id="register-password" placeholder="Mật khẩu" required>
+                
+                <label for="register-email">Email:</label>
+                <input type="email" id="register-email" placeholder="Email" required>
+                
+                <label for="register-phone">Số điện thoại:</label>
+                <input type="tel" id="register-phone" placeholder="Số điện thoại" required>
+                
+                <a><button type="submit" onclick ="logout()">Đăng ký</button>
+            </form>
+            <p>Đã có tài khoản? <a href="../login/login.html">Đăng nhập</a></p>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

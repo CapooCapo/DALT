@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bánh Ngọt Bakery - Xác minh</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-form">
+            <h2>Xác minh tài khoản</h2>
+            <h4><a href="/Backend/test.html" onclick="logout()">Bánh Ngọt Bakery</a></h4>
+            <form id="verification-form">
+                <p>Mã xác minh đã được gửi đến email: <span id="user-email"></span></p>
+                <p>Vui lòng nhập mã xác minh 6 số để kích hoạt tài khoản (<span id="username"></span>)</p>
+                <label for="verification-code">Mã xác minh:</label>
+                <input type="text" id="verification-code" placeholder="Nhập mã xác minh" required>
+                <button type="submit">Xác minh</button>
+            </form>
+            <hr>
+            <form id="resend-verification-form">
+                <h3>Gửi lại mã xác minh</h3>
+                <p>Mã xác minh đã được gửi đến email: <span id="resend-user-email"></span></p>
+                <p>Vui lòng nhập mã xác minh 6 số để kích hoạt tài khoản (<span id="resend-username"></span>)</p>
+                <label for="resend-username-input">Tên tài khoản:</label>
+                <input type="text" id="resend-username-input" placeholder="Nhập tên tài khoản" required>
+                <button type="submit">Gửi lại mã</button>
+            </form>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

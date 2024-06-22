@@ -7,50 +7,67 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="navbar">
-        <div class="logo">BÁNH NGỌT</div>
-        <div class="menu">
-            <button id="loginButton">Đăng nhập</button>
-            <button id="registerButton">Đăng ký</button>
-            <button id="userButton" style="display:none">User</button>
-            <div id="userDropdown" class="dropdown-content" style="display:none">
-                <button id="logoutButton">Đăng xuất</button>
-            </div>
+    <header>
+        <div class="nav-container">
+            <h1>Bánh Ngọt Bakery</h1>
+            <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+            <nav>
+                <ul id="nav-links">
+                    <li><a href="#products">Sản phẩm</a></li>
+                    <li><a href="#customers">Khách hàng</a></li>
+                    <li><a href="#promotions">Khuyến mãi</a></li>
+                    <li id="login-link"><a href="./login/login.html" >Đăng nhập</a></li>
+                    <li id="register-link"><a href="./register/register.html">Đăng ký</a></li>
+                    <li id="account-dropdown" class="dropdown">
+                        <a href="#" id="account-name">Tài khoản</a>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="logout()">Đăng xuất</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
         </div>
-    </div>
+    </header>
+    <main>
+        <section id="products">
+            
+            <div id="product-grid">
+                <!-- Products will be dynamically loaded here -->
+                 
+            </div>
+            <div id="pagination">
+                <button id="prev-page" disabled>← Previous</button>
+                <span id="page-number">Page 1</span>
+                <button id="next-page">Next →</button>
+            </div>
+        </section>
+    </main>
 
-    <div class="modal" id="loginModal">
+    <!-- Modals for login and registration -->
+    <div id="login-modal" class="modal">
         <div class="modal-content">
-            <span class="close" id="closeLoginModal">&times;</span>
-            <h2>Đăng Nhập</h2>
-            <form id="loginForm">
-                <input type="text" id="loginUsername" placeholder="Username" required>
-                <input type="password" id="loginPassword" placeholder="Password" required>
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Đăng nhập</h2>
+            <form id="login-form">
+                <input type="text" id="login-username" placeholder="Username" required>
+                <input type="password" id="login-password" placeholder="Password" required>
                 <button type="submit">Đăng nhập</button>
             </form>
         </div>
     </div>
 
-    <div class="modal" id="registerModal">
+    <div id="register-modal" class="modal">
         <div class="modal-content">
-            <span class="close" id="closeRegisterModal">&times;</span>
-            <h2>Đăng Ký</h2>
-            <form id="registerForm">
-                <input type="text" id="registerUsername" placeholder="Username" required>
-                <input type="password" id="registerPassword" placeholder="Password" required>
-                <input type="text" id="registerPhone" placeholder="Phone Number" required>
-                <input type="email" id="registerEmail" placeholder="Email" required>
+            <span class="close" onclick="closeRegisterModal()">&times;</span>
+            <h2>Đăng ký</h2>
+            <form id="register-form">
+                <input type="text" id="register-username" placeholder="Username" required>
+                <input type="password" id="register-password" placeholder="Password" required>
+                <input type="email" id="register-email" placeholder="Email" required>
+                <input type="tel" id="register-phone" placeholder="Phone Number" required>
                 <button type="submit">Đăng ký</button>
             </form>
         </div>
-    </div>
-
-    <div class="hero">
-        <img src="bannhngot.jpg" alt="Bánh ngọt" class="hero-image">
-    </div>
-
-    <div class="products" id="products">
-        <!-- Products will be dynamically loaded here -->
     </div>
 
     <script src="scripts.js"></script>
